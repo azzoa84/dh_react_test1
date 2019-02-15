@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class MyName extends Component {
+	// 변수 기본값 설정 방법1
 	static defaultProps = {
     	name: '기본이름'
   	}
@@ -14,6 +15,7 @@ class MyName extends Component {
   }
 }
 
+// 변수 기본값 설정 방법 2
 MyName.defaultProps = {
   age: '30살'
 };

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Counter from './Counter';
+import Counter from './example/Counter';
 
 class App extends Component {
   render() {
@@ -11,6 +11,7 @@ class App extends Component {
 }
 
 /*
+import Counter from './example/MyName';
 class App extends Component {
   render() {
     return (

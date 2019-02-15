@@ -1,13 +1,32 @@
+/*LifeCycle API*/
 import React, { Component } from 'react';
+
+const Promblematic = () => {
+  throw (new Error('버그가 나타났다!'));
+  return (
+    <div>
+      
+    </div>
+  );
+};
 
 class Counter extends Component {
   state = {
-    number: 0
+    number: 0,
+    error: false
   }
 
   constructor(props) {
     super(props);
     console.log('constructor');
+  }
+
+  componentDidCatch(error, info) {
+    console.log(error)
+    // 에러 발생시
+    this.setState({
+      error: true
+    });
   }
   
   componentDidMount() {
@@ -28,10 +47,12 @@ class Counter extends Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
+    // shouldComponentUpdate 에서 true 를 반환했을때만 호출
     console.log('componentWillUpdate');
   }
   
   componentDidUpdate(prevProps, prevState) {
+    //  render() 를 호출하고난 다음에 발생
     console.log('componentDidUpdate');
   }
   
@@ -52,11 +73,13 @@ class Counter extends Component {
   }
   
   render() {
-    console.log('render');
+    if (this.state.error) return (<h1>에러발생!</h1>);
+
     return (
       <div>
         <h1>카운터</h1>
         <div>값: {this.state.number}</div>
+        { this.state.number === 4 && <Promblematic /> }
         <button onClick={this.handleIncrease}>+</button>
         <button onClick={this.handleDecrease}>-</button>
       </div>
