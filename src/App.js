@@ -1,28 +1,43 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import Counter from './Counter';
+import MyName from './MyName';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Counter />
     );
   }
 }
 
+/*
+class App extends Component {
+  render() {
+    return (
+      <MyName name="리액트" />
+    );
+  }
+}*/
+
+// jsx코딩
+/*class App extends Component {
+  render() {
+    const name = 'react';
+    // css는 객체로
+    const style = {
+      backgroundColor: 'black',
+      padding: '16px',
+      color: 'white',
+      fontSize: '12px'
+    };
+
+    return (
+      <div style={style}>
+        hi there {name}
+      </div>
+    );
+  }
+}
+*/
 export default App;
